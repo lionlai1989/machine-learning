@@ -65,12 +65,12 @@ class multiClassification:
             print("i = ", i)
             #when using fmin_cg, the initial value must be 1-D array
             xopt = fmin_cg(self.costFunction, theta, fprime=self.gradCost, args=(inputs, y), gtol=1e-05, maxiter=10)
-            #y index 10 1 2 3 4 5 6 7 8 9
+            #y index 0 1 2 3 4 5 6 7 8 9
             allTheta[i, :] = xopt
         return allTheta
 
     def predictOneVsAll(self, allTheta, x, y):
-        compute = l.sigmoid( np.dot(x, np.transpose(allTheta)) )
+        compute = self.sigmoid( np.dot(x, np.transpose(allTheta)) )
         #pick the highest probability
         tmp = np.argmax(compute, axis=1)
         tmp = tmp[:, None]
@@ -80,7 +80,7 @@ class multiClassification:
         return result
 
     def showDataOneByOne(self, allTheta, x, y):         
-        compute = l.sigmoid( np.dot(x, np.transpose(allTheta)) )
+        compute = self.sigmoid( np.dot(x, np.transpose(allTheta)) )
         predicted = np.argmax(compute, axis=1)
         predicted = predicted[:, None]
         result = (predicted == y)

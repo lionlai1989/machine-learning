@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 #shebang is good
-
-from multiClassification import multiClassification
+import multiClassification as mc
 import math
 import sys
+import os
 import numpy as np
 import scipy.io 
 from types import *
@@ -20,6 +20,9 @@ import matplotlib as mpl
 from plotly.plotly import *
 from plotly.graph_objs import *
 
+
+#change python current working directory to the current folder
+os.chdir(os.path.dirname(sys.argv[0]))
 
 data = scipy.io.loadmat("ex3data1.mat", mat_dtype=False)
 y = data['y']
@@ -40,7 +43,7 @@ plt.show()
 
 x = np.concatenate((np.ones((x.shape[0], 1)), x), axis=1)
 theta = np.zeros((x.shape[1], y.shape[1])) 
-l = logisticClassification(x, y, lmda=0.1, numLabel=len(np.unique(y)))
+l = mc.multiClassification(x, y, lmda=0.1, numLabel=len(np.unique(y)))
 #collapse theta into 1-D array
 allTheta = l.oneVsAll(theta.flatten(), x, y)
 result = l.predictOneVsAll(allTheta, x, y)

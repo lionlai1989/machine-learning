@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 #shebang is good
 
-import logisticClassification
+import logisticClassification as lc
 import sys
+import os
 import numpy as np
 from scipy.optimize import fmin
 from scipy.optimize import fmin_bfgs
@@ -14,6 +15,10 @@ from plotly.graph_objs import *
 from types import *
 from mpl_toolkits.mplot3d import Axes3D
 import random
+
+
+#change python current working directory to the current folder
+os.chdir(os.path.dirname(sys.argv[0]))
 
 """machine learning ex2 assignment"""
 
@@ -36,7 +41,7 @@ plt.scatter(x[neg, 0], x[neg, 1], marker='x', c='r')
 #no need to do this, mapfeature do this for me
 #x = np.concatenate((np.ones((trainingNO, 1)), x), axis=1)
 
-l = logisticClassification(x, y)
+l = lc.logisticClassification(x, y)
 x = l.mapFeature(x[:,0],x[:,1])
 theta = np.zeros((x.shape[1], y.shape[1])) 
 #print(x.shape)

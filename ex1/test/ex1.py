@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 #shebang is good
-import linearRegression
+import os
+import sys
+import linearRegression as lr
 import numpy as np
 import matplotlib.pyplot as plt
 from plotly.plotly import *
@@ -9,6 +11,7 @@ from types import *
 from mpl_toolkits.mplot3d import Axes3D
 import random
 
+os.chdir(os.path.dirname(sys.argv[0]))
 
 #Linear regression with one varaible
 #Warm up exercise
@@ -26,7 +29,7 @@ plt.ylabel("Population of City in 10,000s")
 #initialize theta as 0
 theta = np.zeros((x.shape[1] + 1, y.shape[1])) 
 
-g = linearRegression(x, y, iterations=1500)
+g = lr.linearRegression(x, y, iterations=1500)
 
 #FIRST computeCost
 print("First computeCost of ex1data1.txt: ", g.computeCost(x, y, theta))
@@ -67,7 +70,7 @@ x = data[:, 0:2] # x is input vector, a 2-D array
 y = data[:, 2] # y is real price of the house, a 2-D array
 #initialize theta as 0
 
-g = linearRegression(x, y, iterations=400)
+g = lr.linearRegression(x, y, iterations=400)
 n_x, mean, std = g.featureNormalize(x)
 theta = np.zeros((n_x.shape[1] + 1, y.shape[1])) 
 
