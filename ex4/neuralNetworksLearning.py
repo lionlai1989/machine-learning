@@ -5,13 +5,11 @@ import sys
 import numpy as np
 import scipy.io 
 from types import *
-from mpl_toolkits.mplot3d import Axes3D
 import random
 
 from scipy.optimize import fmin_cg
 
 import matplotlib.pyplot as plt
-import matplotlib as mpl
 
 from plotly.plotly import *
 from plotly.graph_objs import *
@@ -19,6 +17,9 @@ from plotly.graph_objs import *
 """machine learning ex4 assignment"""
 
 def displayData(x, num):
+    '''
+    It randomly pick num data in x and displayed 2D data in a nice grid.
+    '''
     print("Visualize", num, "random selected data...")
     idxs = np.random.randint(x.shape[0], size=num) # return 100 random training example
     tmp = np.sqrt(num)
@@ -34,13 +35,22 @@ def displayData(x, num):
     return 1
 
 def sigmoid(z):
+    '''
+    It return a sigmoid of an input array.
+    '''
     return 1/(1+np.exp(-z))
 
 def sigmoidGradient(z):
+    '''
+    It return a sigmoid gradient of an input array.
+    '''
     return sigmoid(z)*(1-sigmoid(z))
     #return np.multiply(sigmoid(z),(1-sigmoid(z)))
 
 def feedForward(x, theta1, theta2):
+    '''
+    Given input x, theta1 and theta2, it computes feedForward of neural network.
+    '''
     a1 = x
     z2 = np.dot(a1, np.transpose(theta1))
     a2 = sigmoid(z2)
@@ -50,6 +60,9 @@ def feedForward(x, theta1, theta2):
     return a1, z2, a2, z3, a3
 
 def recodeLabel(y):
+    '''
+    It recodes array y to a proper shape which complied with H(x)
+    '''
     labelNO = len(np.unique(y))
     out = np.zeros((y.shape[0], labelNO)) # (5000, 10)
     for i in range(y.shape[0]):
@@ -59,6 +72,9 @@ def recodeLabel(y):
 
 def computeCost(theta, inputLayerSize, hiddenLayerSize, numLabel, 
         x, y, lamda):
+    '''
+    For some reason(matlab is different from python), we have to define computeCost separately, which can be used in fmin_cg.
+    '''
     theta1 = np.reshape(theta[:(inputLayerSize+1)*hiddenLayerSize], (hiddenLayerSize, inputLayerSize+1))
     theta2 = np.reshape(theta[(inputLayerSize+1)*hiddenLayerSize:], (numLabel, hiddenLayerSize+1))
     m, n = x.shape
@@ -68,34 +84,18 @@ def computeCost(theta, inputLayerSize, hiddenLayerSize, numLabel,
     leftTerm = np.sum( np.multiply(np.log(a3), -yk) - np.multiply(np.log(1-a3),1-yk) )/m
     rigntTerm = (np.sum(np.power(theta1[:,1:], 2)) + np.sum(np.power(theta2[:,1:], 2)))*lamda/(2*m)
     cost = leftTerm + rigntTerm
-
-    d3 = a3 - yk
-    tmp = np.dot(d3, theta2)
-    tmp = tmp[:,1:]
-    d2 = np.multiply(tmp , sigmoidGradient(z2) )
-
-    accum1 = np.dot(d2.T, a1)
-    accum2 = np.dot(d3.T, a2)
-    tmp1=theta1*lamda/m
-    tmp1[:,0]=0
-    tmp2=theta2*lamda/m
-    tmp2[:,0]=0
-    theta1Grad = accum1/m + tmp1
-    theta2Grad = accum2/m + tmp2
-    thetaGrad = np.concatenate((theta1Grad.flatten(), theta2Grad.flatten()))
     return cost
 
 def computeGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, 
         x, y, lamda):
+    '''
+    For some reason(matlab is different from python), we have to define computeGradient separately, which can be used in fmin_cg.
+    '''
     theta1 = np.reshape(theta[:(inputLayerSize+1)*hiddenLayerSize], (hiddenLayerSize, inputLayerSize+1))
     theta2 = np.reshape(theta[(inputLayerSize+1)*hiddenLayerSize:], (numLabel, hiddenLayerSize+1))
     m, n = x.shape
     a1, z2, a2, z3, a3 = feedForward(x, theta1, theta2)
     yk = recodeLabel(y)
-    
-    leftTerm = np.sum( np.multiply(np.log(a3), -yk) - np.multiply(np.log(1-a3),1-yk) )/m
-    rigntTerm = (np.sum(np.power(theta1[:,1:], 2)) + np.sum(np.power(theta2[:,1:], 2)))*lamda/(2*m)
-    cost = leftTerm + rigntTerm
 
     d3 = a3 - yk
     tmp = np.dot(d3, theta2)
@@ -115,6 +115,9 @@ def computeGradient(theta, inputLayerSize, hiddenLayerSize, numLabel,
 
 def nnCostFunction(theta, inputLayerSize, hiddenLayerSize, numLabel, 
         x, y, lamda):
+    '''
+    It returns cost function and gradient of cost function.
+    '''
     theta1 = np.reshape(theta[:(inputLayerSize+1)*hiddenLayerSize], (hiddenLayerSize, inputLayerSize+1))
     theta2 = np.reshape(theta[(inputLayerSize+1)*hiddenLayerSize:], (numLabel, hiddenLayerSize+1))
     m, n = x.shape
@@ -142,6 +145,9 @@ def nnCostFunction(theta, inputLayerSize, hiddenLayerSize, numLabel,
     return cost, thetaGrad
 
 def randInitializeWeight(theta1, theta2, epislon):
+    '''
+    It randomly initializes theta1 and theta2 in the gap of epislon.
+    '''
     a,b = theta1.shape
     c,d = theta2.shape
     theta1 = theta1.flatten('C')
@@ -164,8 +170,7 @@ def debugInitializeWeights(fanOut, fanIn):
 def computeNumericalGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, 
         x, y, lamda):
     '''
-    It computes the gradient using "finite differences" and gives us a numerical
-    estimate of the gradient.
+    It computes the gradient using "finite differences" and gives us a numerical estimate of the gradient.
     '''
     numGrad = np.zeros((theta.shape))
     perTurb = np.zeros((theta.shape))
@@ -197,10 +202,12 @@ def checkNNGradients(lamda):
     numGrad = computeNumericalGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)
     diff = np.linalg.norm(numGrad-grad)/np.linalg.norm(numGrad+grad)
     print('If the backpropagation is correct, then the relative difference will be less than 1e-9.\nRelative Difference is', diff)
-    
     return 1
 
 def predict(theta1, theta2, x, y):
+    '''
+    It calculates the result of feedForward, and returns the result compared to y.
+    '''
     a1, z2, a2, z3, a3 = feedForward(x, theta1, theta2)
     tmp = np.argmax(a3, axis=1)
     tmp = tmp[:, None]
