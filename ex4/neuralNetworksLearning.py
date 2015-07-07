@@ -18,7 +18,19 @@ from plotly.graph_objs import *
 
 """machine learning ex4 assignment"""
 
-def displayData(x, exampleWidth):
+def displayData(x, num):
+    print("Visualize", num, "random selected data...")
+    idxs = np.random.randint(x.shape[0], size=num) # return 100 random training example
+    tmp = np.sqrt(num)
+    num = tmp.astype(np.int64)
+    fig, ax = plt.subplots(num, num)
+    img_size = math.sqrt(x.shape[1])
+    for i in range(num):
+        for j in range(num):
+            xi = x[idxs[i * num + j], :].reshape(img_size, img_size).T # the array of image is colummn-by-column indexing
+            ax[i, j].set_axis_off()
+            ax[i, j].imshow(xi, aspect="auto", cmap="gray")
+    plt.show()
     return 1
 
 def sigmoid(z):
@@ -44,8 +56,11 @@ def recodeLabel(y):
         out[i, y[i]] = 1
     out = np.roll(out, -1, axis=1) # shift 1 cloumn to left, makes 0 at the last column, the note should define the outout of node corresponded to 0~9
     return out
-    
-def nnCostFunction(x, y, theta1, theta2, lamda): 
+
+def computeCost(theta, inputLayerSize, hiddenLayerSize, numLabel, 
+        x, y, lamda):
+    theta1 = np.reshape(theta[:(inputLayerSize+1)*hiddenLayerSize], (hiddenLayerSize, inputLayerSize+1))
+    theta2 = np.reshape(theta[(inputLayerSize+1)*hiddenLayerSize:], (numLabel, hiddenLayerSize+1))
     m, n = x.shape
     a1, z2, a2, z3, a3 = feedForward(x, theta1, theta2)
     yk = recodeLabel(y)
@@ -53,22 +68,78 @@ def nnCostFunction(x, y, theta1, theta2, lamda):
     leftTerm = np.sum( np.multiply(np.log(a3), -yk) - np.multiply(np.log(1-a3),1-yk) )/m
     rigntTerm = (np.sum(np.power(theta1[:,1:], 2)) + np.sum(np.power(theta2[:,1:], 2)))*lamda/(2*m)
     cost = leftTerm + rigntTerm
-    print(cost)
 
     d3 = a3 - yk
-    print(d3.shape)
     tmp = np.dot(d3, theta2)
     tmp = tmp[:,1:]
-    print(tmp.shape)
     d2 = np.multiply(tmp , sigmoidGradient(z2) )
-    print(d2.shape)
 
     accum1 = np.dot(d2.T, a1)
     accum2 = np.dot(d3.T, a2)
-    theta1Grad = accum1/m
-    theta2Grad = accum2/m
+    tmp1=theta1*lamda/m
+    tmp1[:,0]=0
+    tmp2=theta2*lamda/m
+    tmp2[:,0]=0
+    theta1Grad = accum1/m + tmp1
+    theta2Grad = accum2/m + tmp2
+    thetaGrad = np.concatenate((theta1Grad.flatten(), theta2Grad.flatten()))
+    return cost
 
-    print(accum1, accum2)
+def computeGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, 
+        x, y, lamda):
+    theta1 = np.reshape(theta[:(inputLayerSize+1)*hiddenLayerSize], (hiddenLayerSize, inputLayerSize+1))
+    theta2 = np.reshape(theta[(inputLayerSize+1)*hiddenLayerSize:], (numLabel, hiddenLayerSize+1))
+    m, n = x.shape
+    a1, z2, a2, z3, a3 = feedForward(x, theta1, theta2)
+    yk = recodeLabel(y)
+    
+    leftTerm = np.sum( np.multiply(np.log(a3), -yk) - np.multiply(np.log(1-a3),1-yk) )/m
+    rigntTerm = (np.sum(np.power(theta1[:,1:], 2)) + np.sum(np.power(theta2[:,1:], 2)))*lamda/(2*m)
+    cost = leftTerm + rigntTerm
+
+    d3 = a3 - yk
+    tmp = np.dot(d3, theta2)
+    tmp = tmp[:,1:]
+    d2 = np.multiply(tmp , sigmoidGradient(z2) )
+
+    accum1 = np.dot(d2.T, a1)
+    accum2 = np.dot(d3.T, a2)
+    tmp1=theta1*lamda/m
+    tmp1[:,0]=0
+    tmp2=theta2*lamda/m
+    tmp2[:,0]=0
+    theta1Grad = accum1/m + tmp1
+    theta2Grad = accum2/m + tmp2
+    thetaGrad = np.concatenate((theta1Grad.flatten(), theta2Grad.flatten()))
+    return thetaGrad
+
+def nnCostFunction(theta, inputLayerSize, hiddenLayerSize, numLabel, 
+        x, y, lamda):
+    theta1 = np.reshape(theta[:(inputLayerSize+1)*hiddenLayerSize], (hiddenLayerSize, inputLayerSize+1))
+    theta2 = np.reshape(theta[(inputLayerSize+1)*hiddenLayerSize:], (numLabel, hiddenLayerSize+1))
+    m, n = x.shape
+    a1, z2, a2, z3, a3 = feedForward(x, theta1, theta2)
+    yk = recodeLabel(y)
+    
+    leftTerm = np.sum( np.multiply(np.log(a3), -yk) - np.multiply(np.log(1-a3),1-yk) )/m
+    rigntTerm = (np.sum(np.power(theta1[:,1:], 2)) + np.sum(np.power(theta2[:,1:], 2)))*lamda/(2*m)
+    cost = leftTerm + rigntTerm
+
+    d3 = a3 - yk
+    tmp = np.dot(d3, theta2)
+    tmp = tmp[:,1:]
+    d2 = np.multiply(tmp , sigmoidGradient(z2) )
+
+    accum1 = np.dot(d2.T, a1)
+    accum2 = np.dot(d3.T, a2)
+    tmp1=theta1*lamda/m
+    tmp1[:,0]=0
+    tmp2=theta2*lamda/m
+    tmp2[:,0]=0
+    theta1Grad = accum1/m + tmp1
+    theta2Grad = accum2/m + tmp2
+    thetaGrad = np.concatenate((theta1Grad.flatten(), theta2Grad.flatten()))
+    return cost, thetaGrad
 
 def randInitializeWeight(theta1, theta2, epislon):
     a,b = theta1.shape
@@ -81,5 +152,59 @@ def randInitializeWeight(theta1, theta2, epislon):
     theta2 = theta2.reshape(c, d)
     return theta1, theta2
 
+def debugInitializeWeights(fanOut, fanIn):
+    '''
+    It initializes the weights of a layer with fanIn incoming connections 
+    and fanOut outgoing connections.
+    '''
+    w = np.zeros((fanOut, 1+fanIn))
+    w = np.reshape(np.sin(np.arange(w.size)), w.shape)/10
+    return w
 
+def computeNumericalGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, 
+        x, y, lamda):
+    '''
+    It computes the gradient using "finite differences" and gives us a numerical
+    estimate of the gradient.
+    '''
+    numGrad = np.zeros((theta.shape))
+    perTurb = np.zeros((theta.shape))
+    e = 1e-4
+    for i in range(len(theta)):
+        perTurb[i] = e
+        loss1 = nnCostFunction(theta - perTurb, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)[0]
+        loss2 = nnCostFunction(theta + perTurb, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)[0]
+        numGrad[i] = (loss2-loss1)/(2*e)
+        perTurb[i] = 0
+    return numGrad
 
+def checkNNGradients(lamda):
+    '''
+    It creates a small neural network to check the backpropagation gradients.
+    '''
+    inputLayerSize = 3
+    hiddenLayerSize = 5
+    numLabel = 3
+    m = 5
+    theta1 = debugInitializeWeights(hiddenLayerSize, inputLayerSize)
+    theta2 = debugInitializeWeights(numLabel, hiddenLayerSize)
+    x = debugInitializeWeights(m, inputLayerSize-1)
+    y = np.transpose(np.mod(np.arange(m), numLabel))
+    y = y[:,None]
+    theta = np.concatenate((theta1.flatten(), theta2.flatten()))
+    x = np.concatenate((np.ones((x.shape[0], 1)), x), axis=1)
+    cost, grad = nnCostFunction(theta, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)
+    numGrad = computeNumericalGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)
+    diff = np.linalg.norm(numGrad-grad)/np.linalg.norm(numGrad+grad)
+    print('If the backpropagation is correct, then the relative difference will be less than 1e-9.\nRelative Difference is', diff)
+    
+    return 1
+
+def predict(theta1, theta2, x, y):
+    a1, z2, a2, z3, a3 = feedForward(x, theta1, theta2)
+    tmp = np.argmax(a3, axis=1)
+    tmp = tmp[:, None]
+    tmp = np.roll(tmp, -500)
+    #compare the predicted and the training example
+    result = (tmp == y) 
+    return result
