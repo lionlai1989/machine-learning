@@ -21,7 +21,7 @@ def displayData(x, num):
     It randomly pick num data in x and displayed 2D data in a nice grid.
     '''
     print("Visualize", num, "random selected data...")
-    idxs = np.random.randint(x.shape[0], size=num) # return 100 random training example
+    idxs = np.random.randint(x.shape[0], size=num) # return num random training example
     tmp = np.sqrt(num)
     num = tmp.astype(np.int64)
     fig, ax = plt.subplots(num, num)
@@ -32,7 +32,7 @@ def displayData(x, num):
             ax[i, j].set_axis_off()
             ax[i, j].imshow(xi, aspect="auto", cmap="gray")
     plt.show()
-    return 1
+    return ax
 
 def sigmoid(z):
     '''
@@ -98,8 +98,7 @@ def computeGradient(theta, inputLayerSize, hiddenLayerSize, numLabel,
 
     d3 = a3 - yk
     tmp = np.dot(d3, theta2)
-    tmp = tmp[:,1:]
-    d2 = np.multiply(tmp , sigmoidGradient(z2) )
+    d2 = np.multiply(tmp[:,1:], sigmoidGradient(z2) )
 
     accum1 = np.dot(d2.T, a1)
     accum2 = np.dot(d3.T, a2)
@@ -200,8 +199,7 @@ def checkNNGradients(lamda):
     cost, grad = nnCostFunction(theta, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)
     numGrad = computeNumericalGradient(theta, inputLayerSize, hiddenLayerSize, numLabel, x, y, lamda)
     diff = np.linalg.norm(numGrad-grad)/np.linalg.norm(numGrad+grad)
-    print('If the backpropagation is correct, then the relative difference will be less than 1e-9.\nRelative Difference is', diff)
-    return 1
+    return diff
 
 def predict(theta1, theta2, x, y):
     '''

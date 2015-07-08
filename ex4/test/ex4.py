@@ -51,7 +51,8 @@ print('Sigmoid gradient evaluated at [1, -0.5, 0, 0.5, 1] =', nn.sigmoidGradient
 
 ########## Part 6: Implement Backpropagation ########## 
 print('running checkNNGradients to check backpropagation...')
-nn.checkNNGradients(lamda=3)
+diff = nn.checkNNGradients(lamda=3)
+print('If the backpropagation is correct, then the relative difference will be less than 1e-9.\nRelative Difference is', diff)
 debugJ = nn.nnCostFunction(theta, x.shape[1]-1, theta1.shape[0], theta2.shape[0], x, y, lamda=3)[0]
 print('Cost at (fixed) debugging parameters, Debug cost should be 0.576051.\nDebug cost is', debugJ)
 
