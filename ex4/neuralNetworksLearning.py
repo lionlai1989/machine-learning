@@ -45,7 +45,6 @@ def sigmoidGradient(z):
     It return a sigmoid gradient of an input array.
     '''
     return sigmoid(z)*(1-sigmoid(z))
-    #return np.multiply(sigmoid(z),(1-sigmoid(z)))
 
 def feedForward(x, theta1, theta2):
     '''
