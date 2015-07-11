@@ -39,21 +39,26 @@ def learningCurve(x, y, xv, yv, lamda):
     m, n = x.shape
     errTrain = np.zeros((m, 1))
     errVal = np.zeros((m, 1))
-    print(x.shape, xv.shape)
     for i in range(m):
         theta = trainLinearReg(x[0:i+1,:],y[0:i+1,:], lamda)
         theta = theta[:,None]
         errTrain[i] = linearRegCostFunction(x[0:i+1,:], y[0:i+1,:], 
                                             np.copy(theta), lamda)[0]
         errVal[i] = linearRegCostFunction(xv, yv, np.copy(theta), lamda)[0]
-        print(theta)
-    print(errTrain, errVal) 
     return errTrain, errVal
 
 def polyFeatures(x, p):
+    m, n = x.shape
+    polyX = np.zeros(shape=(m, p))
+    for i in range(p):
+        polyX[:, i] = x[:, 0]**(i+1)
+    return polyX
 
-    return 1
-
-
+def featureNormalize(x):
+    mean = np.mean(x, axis=0)
+    tmp = (x - mean)
+    std = np.std(tmp, axis=0)
+    normX = tmp/std
+    return normX, mean, std
 
 

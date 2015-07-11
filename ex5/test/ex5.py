@@ -33,29 +33,33 @@ plt.show()
 input('Program paused. Press enter to continue...')
 '''
 ########## Part 2: Regularized Linear Regression Cost ########## 
-x = np.concatenate((np.ones((x.shape[0], 1)), x), axis=1)
+tmpX = np.concatenate((np.ones((x.shape[0], 1)), x), axis=1)
 theta = np.array([[1], [1]])
 # python is a weird language, when you want to ONLY pass VALUE of an array, 
 # DO NOT pass "theta", pass "np.copy(theta)", otherwise the theta itself will
 # be changed.
-cost = lr.linearRegCostFunction(x, y, np.copy(theta), lamda=1)[0]
+cost = lr.linearRegCostFunction(tmpX, y, np.copy(theta), lamda=1)[0]
 print('Cost at theta = (1, 1) should be 303.993192\nthe calculated cost is', cost)
 
 ########## Part 3: Regularized Linear Regression Gradient ########## 
-grad = lr.linearRegCostFunction(x, y, np.copy(theta), lamda=1)[1]
+grad = lr.linearRegCostFunction(tmpX, y, np.copy(theta), lamda=1)[1]
 print('Gradient at theta = (1, 1) should be (-15.303016, 598.250744)\n\
 the calculated grad is\n', grad)
 
 ########## Part 4: Train Linear Regression ########## 
-theta = lr.trainLinearReg(x, y, lamda=1)
+theta = lr.trainLinearReg(tmpX, y, lamda=1)
 print(theta, theta.shape)
 
 ########## Part 5: Learning Curve for Linear Regression ########## 
-xv = np.concatenate((np.ones((xv.shape[0], 1)), xv), axis=1)
-lr.learningCurve(x, y, xv, yv, lamda=0)
+tmpXv = np.concatenate((np.ones((xv.shape[0], 1)), xv), axis=1)
+lr.learningCurve(tmpX, y, tmpXv, yv, lamda=0)
 
 ########## Part 6: Feature Mapping for Polynomial Regression ########## 
-lr.polyFeatures(x, p=2)
+polyX = lr.polyFeatures(x, p=8)
+polyX, mean, std = lr.featureNormalize(polyX)
 
+
+print(x)
+print(polyX)
 print(sys.version)
 
