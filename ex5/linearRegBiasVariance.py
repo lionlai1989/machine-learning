@@ -20,7 +20,8 @@ def  linearRegCostFunction(x, y, theta, lamda):
         theta = theta[:, None]
     tmp = np.dot(x, np.copy(theta))-y
     theta[0,0] = 0
-    cost = np.sum(np.multiply(tmp, tmp))/(2*m) + (np.sum(np.multiply(np.copy(theta), np.copy(theta)))*lamda/(2*m))
+    cost = np.sum(np.multiply(tmp, tmp))/(2*m) + \
+            (np.sum(np.multiply(np.copy(theta), np.copy(theta)))*lamda/(2*m))
     grad = ((np.dot(np.transpose(x), tmp))/(m))+(theta*(lamda)/(m))
     # grad.flatten makes grad to be a 1-D array, 
     # and it can help when used in fmin_cg
