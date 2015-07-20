@@ -21,7 +21,7 @@ def  linearRegCostFunction(x, y, theta, lamda):
     tmp = np.dot(x, np.copy(theta))-y
     theta[0,0] = 0
     cost = np.sum(np.multiply(tmp, tmp))/(2*m) + \
-            (np.sum(np.multiply(np.copy(theta), np.copy(theta)))*lamda/(2*m))
+        (np.sum(np.multiply(np.copy(theta), np.copy(theta)))*lamda/(2*m))
     grad = ((np.dot(np.transpose(x), tmp))/(m))+(theta*(lamda)/(m))
     # grad.flatten makes grad to be a 1-D array, 
     # and it can help when used in fmin_cg
@@ -40,10 +40,8 @@ def trainLinearReg(x, y, lamda):
                                                     lamda)[1]
     #when using fmin_cg, the initial value must be 1-D array
     xopt = fmin_cg(costFunction, np.copy(theta), \
-                    fprime=costGrad, gtol=1e-09, maxiter=200)
-    
+                    fprime=costGrad, gtol=1e-09, maxiter=200)    
     return xopt
-
 
 def learningCurve(x, y, xv, yv, lamda):
     m, n = x.shape
@@ -79,8 +77,10 @@ def validationCurve(polyX, y, polyXv, yv):
     errVal = np.zeros((len(lamdaVec)))
     for i in range(len(lamdaVec)):
         theta = trainLinearReg(polyX, y, lamdaVec[i])
-        errTrain[i] = linearRegCostFunction(polyX, y, np.copy(theta), lamdaVec[i])[0]
-        errVal[i] = linearRegCostFunction(polyXv, yv, np.copy(theta), lamdaVec[i])[0]
+        errTrain[i] = linearRegCostFunction(polyX, y, \
+                        np.copy(theta), lamdaVec[i])[0]
+        errVal[i] = linearRegCostFunction(polyXv, yv, \
+                        np.copy(theta), lamdaVec[i])[0]
     return lamdaVec, errTrain, errVal
 
 def plotFit(xmin, xmax, mean, std, theta, p):
