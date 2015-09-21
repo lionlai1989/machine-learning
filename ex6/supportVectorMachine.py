@@ -33,7 +33,7 @@ def visualizeBoundaryLinear(x, y, model):
         print(w, xp.shape)
         yp = (-w[0] * xp - model.intercept_) / w[1]
         print(model.intercept_)
-        #plt.plot(xp, yp, 'b-')
+        plt.plot(xp, yp, 'b-')
     elif kernel == 'rbf':
         x1plot = np.linspace( min(x[:, 0]), max(x[:, 0]), 100)
         x2plot = np.linspace( min(x[:, 1]), max(x[:, 1]), 100)
@@ -42,7 +42,7 @@ def visualizeBoundaryLinear(x, y, model):
         for i in range(0, np.shape(x1)[1]):
             this_x = np.c_[ x1[:, i], x2[:, i] ]
             vals[:, i] = model.predict(this_x)
-
+        plt.contour( x1, x2, vals, colors='blue' )
     return 1
 
 def dataset3Params(x, y, xVal, yVal):

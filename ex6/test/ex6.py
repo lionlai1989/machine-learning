@@ -24,19 +24,19 @@ print(x, y)
 
 pos = np.where(y==1)
 neg = np.where(y==0)
-#print(type(pos), '\n', neg[0])
-#plt.scatter(x[pos[0], 0], x[pos[0], 1], marker='o', c='y')
-#plt.scatter(x[neg[0], 0], x[neg[0], 1], marker='x', c='k')
+print(type(pos), '\n', neg[0])
+plt.scatter(x[pos[0], 0], x[pos[0], 1], marker='o', c='y')
+plt.scatter(x[neg[0], 0], x[neg[0], 1], marker='x', c='k')
 
 #input('Program paused. Press enter to continue...')
 
 ########## Part 2: Training Linear SVM ########## 
-C = 100
-model = svm.svmTrain(x, y, C, 'linear', 1e-3, 20, sigma=0)
+C = 1
+model = svm.svmTrain(x, y, C, 'linear', 1e-3, 200, sigma=0)
 svm.visualizeBoundaryLinear(x, y, model)
 #svm.visualizeBoundaryLinear(x, y, model)
-#plt.show()
-#input('Program paused. Press enter to continue...')
+plt.show()
+input('Program paused. Press enter to continue...')
 
 ########## Part 3: Implementing Gaussian Kernel ########## 
 print('Evaluating the Gaussian Kernel ...\n')
@@ -58,12 +58,18 @@ y = data['y']
 #print(x, y)
 #print('x shape =', x.shape, '\ny shape =', y.shape)
 
+pos = np.where(y==1)
+neg = np.where(y==0)
+print(type(pos), '\n', neg[0])
+plt.scatter(x[pos[0], 0], x[pos[0], 1], marker='o', c='y')
+plt.scatter(x[neg[0], 0], x[neg[0], 1], marker='x', c='k')
 
 ########## Part 5: Training SVM with RBF Kernel (Dataset 2) ########## 
 C = 1
 model = svm.svmTrain(x, y, C, 'rbf', 1e-3, -1, sigma=0.1)
 svm.visualizeBoundaryLinear(x, y, model)
-#input('Program paused. Press enter to continue...')
+plt.show()
+input('Program paused. Press enter to continue...')
 
 ########## Part 6: Visualizing Dataset 3 ########## 
 print('Loading and Visualizing Data')
