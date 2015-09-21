@@ -30,8 +30,8 @@ y = y[:, None] # cast y from 1D array (100, ) into 2D array (100,1)
 
 pos = np.where(y==1)
 neg = np.where(y==0)
-plt.scatter(x[pos, 0], x[pos, 1], marker='o', c='b')
-plt.scatter(x[neg, 0], x[neg, 1], marker='x', c='r')
+plt.scatter(x[pos, 0], x[pos, 1], marker='x', c='b')
+plt.scatter(x[neg, 0], x[neg, 1], marker='o', c='r')
 
 theta = np.zeros((x.shape[1]+1, y.shape[1]))
 l = lc.logisticClassification(x, y)
