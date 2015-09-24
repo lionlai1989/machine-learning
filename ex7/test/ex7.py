@@ -44,19 +44,11 @@ centroids, idx = kmc.runKMeans(x, initialCentroids, maxIters, True)
 print(centroids)
 
 ########## Part 4: K-Means Clustering on Pixels ########## 
-'''
-y = data['y']
-#print(x, y)
-#print('x shape =', x.shape, '\ny shape =', y.shape)
-
-pos = np.where(y==1)
-neg = np.where(y==0)
-print(type(pos), '\n', neg[0])
-plt.scatter(x[pos[0], 0], x[pos[0], 1], marker='o', c='y')
-plt.scatter(x[neg[0], 0], x[neg[0], 1], marker='x', c='k')
+print('Running K-Means clustering on pixels from an image')
 
 ########## Part 5: Image Compression ########## 
-input('Program paused. Press enter to continue...')
-'''
+print('Applying K-Means to compress an image.')
+
+
 print(sys.version)
 
