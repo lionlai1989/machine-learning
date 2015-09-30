@@ -50,15 +50,17 @@ def displayData(x, num):
 	It randomly pick num data in x and displayed 2D data in a nice grid.
 	'''
 	print("Visualize", num, "selected data...")
-	#idxs = np.random.randint(x.shape[0], size=num) # return num random training example
-	idxs = range(num)
+	 # return num random training example
+        #idxs = np.random.randint(x.shape[0], size=num)	
+        idxs = range(num)
 	tmp = np.sqrt(num)
 	num = tmp.astype(np.int64)
 	fig, ax = plt.subplots(num, num)
 	img_size = math.sqrt(x.shape[1])
 	for i in range(num):
 		for j in range(num):
-			xi = x[idxs[i * num + j], :].reshape(img_size, img_size).T # the array of image is colummn-by-column indexing
+                        # the array of image is colummn-by-column indexing
+			xi = x[idxs[i * num + j], :].reshape(img_size, img_size).T 
 			ax[i, j].set_axis_off()
 			ax[i, j].imshow(xi, aspect="auto", cmap="gray")
 	plt.show()

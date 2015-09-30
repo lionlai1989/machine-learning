@@ -13,7 +13,7 @@ from mpl_toolkits.mplot3d import Axes3D
 # change python current working directory to the current folder
 os.chdir(os.path.dirname(sys.argv[0]))
 #print(os.getcwd())
-'''
+
 ########## Part 1: Load Example Dataset ########## 
 print('Visualizing example dataset for PCA.')
 data = scipy.io.loadmat("ex7data1.mat", mat_dtype=False)
@@ -21,11 +21,12 @@ x = data['X']
 
 plt.plot(x[:,0], x[:,1], "bo")
 plt.axis([0.5, 6.5, 2.0, 8.0])
-#plt.show()
-#input('Program paused. Press enter to continue...')
+plt.show()
+input('Program paused. Press enter to continue...')
 
 ########## Part 2: Principal Component Analysis ########## 
 print('shape of data:', x.shape)
+print('Running PCA on example dataset')
 normX, mean, std = pca.featureNormalize(x)
 eigU, eigS = pca.pca(np.copy(normX)) # u is eigenVector, s is eigenValue
 mu_1 = mean + 1.5 * eigS[0] * eigU[:, 0] # this is vector product, 
@@ -66,14 +67,13 @@ for i in range(xRecover.shape[0]): # i = 0 to 49
 		'k-', lw=1, ls='--')
 plt.axis([-4, 3, -4, 3])
 plt.show()
-'''
-'''
+
 ########## Part 4: Loading and Visualizing Face Data ########## 
 print('Loading face dataset')
 face = scipy.io.loadmat("ex7faces.mat", mat_dtype=False)
 x = face['X']
 print('shape of face:', x.shape)
-#pca.displayData(x[:100,:], 100);
+pca.displayData(x[:100,:], 100);
 
 ########## Part 5: PCA on Face Data: Eigenfaces ########## 
 print('Running PCA on face dataset')
@@ -96,12 +96,12 @@ print('print Original faces')
 pca.displayData(normX[:100, :], 100);
 print('print Recovered faces')
 pca.displayData(xRecover[:100, :], 100);
-'''
+
 ########## Part 8(a): Optional (ungraded) Exercise: PCA for Visualization ##########
 A = imread('bird_small.png')
 A = A / 255.0
 img_size = A.shape
-X = A.reshape( img_size[0] * img_size[1], 3 )
+X = A.reshape( img_size[0] * img_size[1], img_size[2] )
 K = 16
 max_iters = 10
 initial_centroids = kmc.kMeansInitCentroids( X, K )
@@ -119,7 +119,4 @@ Z = pca.projectData( X_norm, U, 2 )
 plt.scatter( Z[:100, 0], Z[:100, 1], c='r', marker='o' )
 plt.show(block=True)
 ########## Part 8(b): Optional (ungraded) Exercise: PCA for Visualization ########## 
-
-
-
 print(sys.version)
