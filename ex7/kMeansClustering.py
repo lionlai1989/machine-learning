@@ -59,7 +59,7 @@ def runKMeans(x, initialCentroids, maxIters, flag):
     return centroids, idx
 
 def kMeansInitCentroids(x, K):
-    np.random.shuffle(x) 
+    np.random.shuffle(np.copy(x)) 
     return x[:K,:]
 
 
