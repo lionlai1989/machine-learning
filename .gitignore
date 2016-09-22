@@ -11,3 +11,5 @@ dist/
 
 #mac generated file
 .DS_Store
+
+py3env/
