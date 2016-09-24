@@ -3,10 +3,11 @@
 
 ###Quick Guide:
 1. Installing python3.
-2. Installing numpy and matplotlib.
+2. Installing numpy, matplotlib and scipy.
 ```
   sudo pip3 install numpy
   sudo pip3 install matplotlib
+  sudo pip3 install scipy
 ```
 
 3. Cloning from [https://github.com/lionlai1989/machineLearningStanford](https://github.com/lionlai1989/machineLearningStanford)
