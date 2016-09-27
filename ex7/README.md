@@ -23,6 +23,9 @@ possibilities).<br>
 **Compressed Me**<br>
 ![preview](https://cloud.githubusercontent.com/assets/5163329/18864911/2be5282a-84cb-11e6-8879-02525f1199e3.png)<br>
 
+```
+  python3 -m text.ex7_pca
+```
 ##Principal Component Analysis<br>
 ###Computed eigenvectors of the dataset<br>
 ![preview](https://cloud.githubusercontent.com/assets/5163329/18868576/50c64556-84db-11e6-8291-e76cdc85f053.png)<br>
