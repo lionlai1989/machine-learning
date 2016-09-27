@@ -37,7 +37,7 @@ possibilities).<br>
 ###Reconstructed images of faces<br>
 ![preview](https://cloud.githubusercontent.com/assets/5163329/18868584/50f8a942-84db-11e6-9918-1d30f8b984bf.png)<br>
 From the reconstruction, you can observe that the general structure and appearance of the face are kept while the fine
-details are lost. This is a remarkable reduction (more than 10×) in the dataset size that can help speed up your learning
+details are lost. This is a remarkable reduction (from 1024 to 100) in the dataset size that can help speed up your learning
 algorithm significantly. For example, if you were training a neural network to perform person recognition (gven a face
 image, predict the identitfy of the person), you can use the dimension reduced input of only a 100 dimensions instead of
 the original pixels.<br>
