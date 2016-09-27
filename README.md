@@ -16,8 +16,14 @@
 ```
   git clone https://github.com/lionlai1989/machineLearningStanford
 ```
-
-4. Now you can go into child directory to run examples.
+[Linear Regression](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex1)<br>
+[Logistic Regression](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex2)<br>
+[Multi-class Classification](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex3)<br>
+[Neural Networks](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex4)<br>
+[Regularized Linear Regression and Bias v.s. Variance](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex5)<br>
+[Support Vector Machines](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex6)<br>
+[K-means clustering and Principal Component Analysis](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex7)<br>
+[Anomaly Detection and Recommender Systems](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex8)<br>
 
 If you want to use this module, please read the *.py file in test folder. You should get a good understanding of using this module by reading test file. If not, please contact me. Any judgement and recommendation are welcomed.
 Thank you.
