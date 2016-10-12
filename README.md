@@ -4,18 +4,18 @@
 ###Quick Guide:
 1. Installing python3.
 2. Installing numpy, matplotlib, scipy, scikit-learn and Pillow.
-```
+  ```
   sudo pip3 install numpy
   sudo pip3 install matplotlib
   sudo pip3 install scipy
   sudo pip3 install scikit-learn
   sudo pip3 install Pillow
-```
+  ```
 
 3. Cloning from [https://github.com/lionlai1989/machineLearningStanford](https://github.com/lionlai1989/machineLearningStanford)
-```
+  ```
   git clone https://github.com/lionlai1989/machineLearningStanford
-```
+  ```
 [Linear Regression](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex1)<br>
 [Logistic Regression](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex2)<br>
 [Multi-class Classification](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex3)<br>
