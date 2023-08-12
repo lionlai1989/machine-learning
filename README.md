@@ -1,6 +1,6 @@
 # Machine Learning Specialization
 
-Due to historical reasons, this repository contains materials from two courses: 'Machine Learning' offered by Stanford University and the ['Machine Learning Specialization'](https://www.deeplearning.ai/courses/machine-learning-specialization/) offered by DeepLearning.AI. While the original link to the 'Machine Learning' course offered by Stanford in 2016 is no longer available, all relevant materials have been preserved within this repository.
+Due to historical reasons, this repository contains materials from two courses: 'Machine Learning' offered by Stanford University and the ['Machine Learning Specialization'](https://www.deeplearning.ai/courses/machine-learning-specialization/) offered by DeepLearning.AI. While the original link to the 'Machine Learning' course offered by Stanford in 2015 is no longer available, all relevant materials have been preserved within this repository.
 
 ## Description
 
@@ -52,7 +52,7 @@ Any feedback, comments, and questions about this repository are welcome. However
 * 2.0.0
     * Working on the course, Machine Learning Specialization, in 2023.
 * 1.0.0
-    * Finish all the problems in the course of Machine Learning Stanford by 2016.
+    * Finish all the problems in the course of Machine Learning Stanford by 2015.
 
 
 ## Reference
