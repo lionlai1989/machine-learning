@@ -22,6 +22,11 @@ we need to know to implement a linear regression algorithm from the ground up. I
 presents how to select an appropriate regression model, define a cost function, and
 build a batch gradient descent approach to optimize a regression model.
 
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W2-Linear_Regression/images/linear_regression.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">Linear regression fits samples with one feature.</p>
+</div>
+
 #### C1W3: [Logistic Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W3-Logistic_Regression/C1_W3_Logistic_Regression.html)
 
 Although linear regression is good at predicting continuous values, it's not the ideal
@@ -31,6 +36,11 @@ handling discrete predictions. In this section, it shows how to build a logistic
 regression model from scratch and address the issue of overfitting by introducing a
 regularization term into the logistic cost function, ensuring the accuracy of models
 during inference.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W3-Logistic_Regression/images/figure 4.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">Logistic regression is employed to establish a decision boundary for two-feature samples by introducing polynomial terms as augmented features derived from the original two features.</p>
+</div>
 
 #### C2W1:
 
