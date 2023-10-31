@@ -12,4 +12,5 @@ dist/
 #mac generated file
 .DS_Store
 
-py3env/**
+venv*/**
+.ipynb_checkpoints
