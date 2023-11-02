@@ -11,7 +11,7 @@ preserved within this repository.
 
 ### Machine Learning Specialization
 
-#### C1W2: [Linear Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W2A1-Linear_Regression/C1_W2_Linear_Regression.html)
+#### C1W2A1: [Linear Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W2A1-Linear_Regression/C1_W2_Linear_Regression.html)
 
 **Linear regression** is one of the most widely used algorithms for predicting a wide
 range of phenomena in fields like economics, social sciences, and engineering. It
@@ -25,7 +25,7 @@ build a batch gradient descent approach to optimize a regression model.
   <p style="font-size: 14px; color: #777;">Linear regression fits samples with one feature.</p>
 </div>
 
-#### C1W3: [Logistic Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W3A1-Logistic_Regression/C1_W3_Logistic_Regression.html)
+#### C1W3A1: [Logistic Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W3A1-Logistic_Regression/C1_W3_Logistic_Regression.html)
 
 Although linear regression is good at predicting continuous values, it's not the ideal
 choice for tasks that require **discrete** outcomes, like **classification problems**.
@@ -40,7 +40,22 @@ during inference.
   <p style="font-size: 14px; color: #777;">Logistic regression is employed to establish a decision boundary for two-feature samples by introducing polynomial terms as augmented features derived from the original two features.</p>
 </div>
 
-#### C2W1:
+#### C2W1A1: [Neural Networks for Handwritten Digit Recognition, Binary](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C2-Advanced_Learning_Algorithms/W1A1-Neural_Networks_for_Handwritten_Digit_Recognition/C2_W1_Assignment.html)
+
+In the first week of Course 2, it introduced the essential theoretical concepts and
+implementation details required for building a multiple layer perceptron (MLP) network
+from scratch. As a practical exercise, I constructed a simple three-layer MLP for
+classifying handwritten digits '0' and '1'. While the model's performance was nearly
+perfect, it did encounter a specific challenge in correctly classifying a '0' with a
+narrow middle section.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W1A1-Neural_Networks_for_Handwritten_Digit_Recognition/images/label_yhat.png" alt="Your Image Description" height="256">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W1A1-Neural_Networks_for_Handwritten_Digit_Recognition/images/misclassified_0.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">Left: A three-layer MLP distinguishes between handwritten '0' and '1' images with high
+accuracy. Right: The model encounters difficulty in correctly classifying a narrow '0',
+mistakenly identifying it as '1'.</p>
+</div>
 
 #### C2W2:
 
