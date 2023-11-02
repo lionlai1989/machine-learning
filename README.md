@@ -9,11 +9,9 @@ preserved within this repository.
 
 ## Description
 
-### Machine Learning Stanford
-
 ### Machine Learning Specialization
 
-#### C1W2: [Linear Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W2-Linear_Regression/C1_W2_Linear_Regression.html)
+#### C1W2: [Linear Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W2A1-Linear_Regression/C1_W2_Linear_Regression.html)
 
 **Linear regression** is one of the most widely used algorithms for predicting a wide
 range of phenomena in fields like economics, social sciences, and engineering. It
@@ -27,7 +25,7 @@ build a batch gradient descent approach to optimize a regression model.
   <p style="font-size: 14px; color: #777;">Linear regression fits samples with one feature.</p>
 </div>
 
-#### C1W3: [Logistic Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W3-Logistic_Regression/C1_W3_Logistic_Regression.html)
+#### C1W3: [Logistic Regression](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W3A1-Logistic_Regression/C1_W3_Logistic_Regression.html)
 
 Although linear regression is good at predicting continuous values, it's not the ideal
 choice for tasks that require **discrete** outcomes, like **classification problems**.
@@ -49,6 +47,24 @@ during inference.
 #### C2W3:
 
 #### C2W4:
+
+### Machine Learning Stanford
+
+#### [Linear Regression]()
+
+#### [Logistic Regression]()
+
+#### [Multi-class Classification]()
+
+#### [Neural Networks]()
+
+#### [Regularized Linear Regression and Bias v.s. Variance]()
+
+#### [Support Vector Machines]()
+
+#### [K-means clustering and Principal Component Analysis]()
+
+#### [Anomaly Detection and Recommender Systems]()
 
 ## Getting Started
 
