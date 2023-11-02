@@ -21,7 +21,7 @@ presents how to select an appropriate regression model, define a cost function, 
 build a batch gradient descent approach to optimize a regression model.
 
 <div style="text-align:center">
-  <img src="./DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W2-Linear_Regression/images/linear_regression.png" alt="Your Image Description" height="256">
+  <img src="./DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W2A1-Linear_Regression/images/linear_regression.png" alt="Your Image Description" height="256">
   <p style="font-size: 14px; color: #777;">Linear regression fits samples with one feature.</p>
 </div>
 
@@ -36,7 +36,7 @@ regularization term into the logistic cost function, ensuring the accuracy of mo
 during inference.
 
 <div style="text-align:center">
-  <img src="./DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/C1W3-Logistic_Regression/images/figure 4.png" alt="Your Image Description" height="256">
+  <img src="./DeepLearningAI/C1-Supervised_Machine_Learning_Regression_and_Classification/W3A1-Logistic_Regression/images/figure 4.png" alt="Your Image Description" height="256">
   <p style="font-size: 14px; color: #777;">Logistic regression is employed to establish a decision boundary for two-feature samples by introducing polynomial terms as augmented features derived from the original two features.</p>
 </div>
 
