@@ -45,7 +45,9 @@ during inference.
 In the first week of Course 2, it introduced the essential theoretical concepts and
 implementation details required for building a multiple layer perceptron (MLP) network
 from scratch. As a practical exercise, I constructed a simple three-layer MLP for
-classifying handwritten digits '0' and '1'. While the model's performance was nearly
+classifying handwritten digits '0' and '1.' Essentially, this MLP behaves similarly to
+logistic regression, producing a single scalar output of either '0' or '1,'
+differentiating between exactly two classes. While the model's performance was nearly
 perfect, it did encounter a specific challenge in correctly classifying a '0' with a
 narrow middle section.
 
@@ -57,7 +59,22 @@ accuracy. Right: The model encounters difficulty in correctly classifying a narr
 mistakenly identifying it as '1'.</p>
 </div>
 
-#### C2W2:
+#### C2W2A1: [Neural Networks for Handwritten Digit Recognition, Multiclass](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C2-Advanced_Learning_Algorithms/W2A1-Neural_Networks_for_Handwritten_Digit_Recognition_Multiclass/C2_W2_Assignment.html)
+
+This week introduced additional activation functions and multi-class and multi-label
+classification, including the softmax function to handle multiple classes' outputs. I
+extended the concept by implementing a three-layer MLP capable of recognizing
+handwritten digits spanning from '0' to '9.' Although the model's overall performance
+remained nearly perfect, it encountered a specific challenge when classifying '3,' which
+exhibited a slight skew.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W2A1-Neural_Networks_for_Handwritten_Digit_Recognition_Multiclass/images/label_yhat.png" alt="Your Image Description" height="256">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W2A1-Neural_Networks_for_Handwritten_Digit_Recognition_Multiclass/images/misclassified_3.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">Left: A three-layer MLP distinguishes between handwritten '0' to '9' images with high
+accuracy. Right: The model encounters difficulty in correctly classifying a skewed '3',
+mistakenly identifying it as '5'.</p>
+</div>
 
 #### C2W3:
 
