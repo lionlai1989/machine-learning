@@ -76,7 +76,22 @@ accuracy. Right: The model encounters difficulty in correctly classifying a skew
 mistakenly identifying it as '5'.</p>
 </div>
 
-#### C2W3:
+#### C2W3A1: [Advice for Applying Machine Learning](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C2-Advanced_Learning_Algorithms/W3A1-Advice_for_Applying_Machine_Learning/C2_W3_Assignment.html)
+
+This week, Andrew introduces techniques that enhance the performance of machine learning
+algorithms through optimization. These techniques include evaluating and adjusting
+algorithms to address bias and variance issues using regularization. Additionally, he
+explores training procedures, setting performance benchmarks, and adopting an iterative
+development approach. Furthermore, he introduces error analysis, data augmentation and
+synthesis, and the utilization of transfer learning for rapid development. Finally, he
+emphasizes the importance of fairness and ethics in machine learning models and
+introduces precision-recall measures and the F1 score for effective evaluation.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W3A1-Advice_for_Applying_Machine_Learning/images/unregularized_complex_nn.png" alt="Your Image Description" height="256">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W3A1-Advice_for_Applying_Machine_Learning/images/regularized_complex_nn.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">The first image illustrates that a complex neural network tends to overfit the training data, resulting in poor performance on the validation data. However, this issue can be mitigated by introducing regularization into the training process (cost function), as demonstrated in the second image.</p>
+</div>
 
 #### C2W4:
 
@@ -168,6 +183,10 @@ learning journey, and I aim to maintain its independence.
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # or any {'0', '1', '2', '3'}. 3: NONE
 ```
+
+or
+
+Set `verbose=0` to the `fit` method of the TensorFlow `model`.
 
 <!--
 Use "python3.10" and "numpy >= 1.20"
