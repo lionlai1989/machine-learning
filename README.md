@@ -93,7 +93,7 @@ introduces precision-recall measures and the F1 score for effective evaluation.
   <p style="font-size: 14px; color: #777;">The first image illustrates that a complex neural network tends to overfit the training data, resulting in poor performance on the validation data. However, this issue can be mitigated by introducing regularization into the training process (cost function), as demonstrated in the second image.</p>
 </div>
 
-#### C2W4A1 [Decision Trees](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C2-Advanced_Learning_Algorithms/W4A1-Decision_Trees/C2_W4_Decision_Tree_with_Markdown.html):
+#### C2W4A1: [Decision Trees](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C2-Advanced_Learning_Algorithms/W4A1-Decision_Trees/C2_W4_Decision_Tree_with_Markdown.html)
 
 This week, Andrew took a detour from discussing neural networks and dived into the
 theory and practical details of building a decision tree from scratch. Essentially,
