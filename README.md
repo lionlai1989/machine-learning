@@ -93,7 +93,23 @@ introduces precision-recall measures and the F1 score for effective evaluation.
   <p style="font-size: 14px; color: #777;">The first image illustrates that a complex neural network tends to overfit the training data, resulting in poor performance on the validation data. However, this issue can be mitigated by introducing regularization into the training process (cost function), as demonstrated in the second image.</p>
 </div>
 
-#### C2W4:
+#### C2W4A1 [Decision Trees](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C2-Advanced_Learning_Algorithms/W4A1-Decision_Trees/C2_W4_Decision_Tree_with_Markdown.html):
+
+This week, Andrew took a detour from discussing neural networks and dived into the
+theory and practical details of building a decision tree from scratch. Essentially,
+decision trees split data using an entropy function to measure data purity. These trees
+not only handle binary features but also accommodate multiple categories and even
+continuous valued features. Additionally, the session introduced a regression tree
+capable of predicting continuous values, similar to linear regression. However,
+recognizing the limitations of a single decision tree, tree ensembles were introduced.
+The discussion expanded to cover bagged decision trees, the random forest algorithm, and
+XGBoost. Finally, the session briefly explores the scenarios for using neural networks
+versus decision trees.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C2-Advanced_Learning_Algorithms/W4A1-Decision_Trees/images/simple_decision_tree.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">A simple decision tree is used to classify whether a mushroom is edible or poisonous.</p>
+</div>
 
 ### Machine Learning Stanford
 
@@ -175,6 +191,12 @@ learning journey, and I aim to maintain its independence.
     -   Finish all the problems in the course of Machine Learning Stanford by 2015.
 
 ## Reference
+
+-   Please also install `graphviz` if you want to plot pretty graph (optional).
+
+```
+sudo apt-get install graphviz
+```
 
 -   Disable annoying tensorflow DEBUG message. Put the following code at the start of
     the nodebook.
