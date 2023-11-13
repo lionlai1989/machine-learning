@@ -111,6 +111,25 @@ versus decision trees.
   <p style="font-size: 14px; color: #777;">A simple decision tree is used to classify whether a mushroom is edible or poisonous.</p>
 </div>
 
+#### C3W1A1: [K-means Clustering](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W1A1-K_means_Clustering/C3_W1_KMeans_Assignment.html)
+
+Course 1 and 2 show the fundamentals of supervised learning. In course 3, we will
+explore unsupervised learning, where data lacks labels, and our aim is to extract hidden
+insights within this unlabeled data. In this segment, Andres provides a comprehensive
+introduction to the K-means algorithm, which I then implement from scratch. One
+application of K-means is image compression, demonstrated in the left image below, where
+an image is compressed using only 16 colors (clusters). The right image illustrates the
+distribution of RGB pixels in a 3D space, with the red crosses marking the centers of
+these 16 clusters.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W1A1-K_means_Clustering/images/original_compressed_bird.png" height="256">
+  <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W1A1-K_means_Clustering/images/kmeans_rgb_16_clusters.png" height="256">
+  <p style="font-size: 14px; color: #777;">Left: 16 colors (clusters) are used to compress a bird image. Right: Pixels distribution in RGB 3D space with red crosses marking the 16 clusters' centroids.</p>
+</div>
+
+#### C3W1A2: []()
+
 ### Machine Learning Stanford
 
 #### [Linear Regression]()
