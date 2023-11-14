@@ -128,7 +128,26 @@ these 16 clusters.
   <p style="font-size: 14px; color: #777;">Left: 16 colors (clusters) are used to compress a bird image. Right: Pixels distribution in RGB 3D space with red crosses marking the 16 clusters' centroids.</p>
 </div>
 
-#### C3W1A2: []()
+#### C3W1A2: [Anomaly Detection](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W1A2-Anomaly_Detection/C3_W1_Anomaly_Detection.html)
+
+In supervised learning, neural networks or logistic regressions are commonly employed to
+discern the decision boundary between positive and negative examples. However, what if
+our training dataset contains only a limited number of positive examples, representing
+abnormal data? In such cases, where positive examples are sparse in the training
+dataset, a viable approach is to construct a **generative model** focused on the
+negative examples. This generative model calculates the probability of a new example
+$x_\text{text}$, denoted as $p(x_\text{text})$, being classified as negative.
+Consequently, the generative model can be used to detect anomaly in a system. For
+instance, when presented with a new example $x_\text{text}$, if the computed probability
+$p(x_\text{text})$ exceeds a predefined threshold, we can confidently categorize the
+example as belonging to the negative class. Conversely, if $p(x_\text{text})$ falls
+below the threshold, it signifies that $x_\text{text}$ deviates from the negative
+examples, indicating an anomaly.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W1A2-Anomaly_Detection/images/anomaly_detection.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">The anomalous data, depicted as blue crosses encircled by red circles, are identified based on their probabilities falling below a predetermined threshold.</p>
+</div>
 
 ### Machine Learning Stanford
 
