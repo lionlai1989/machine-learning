@@ -144,6 +144,17 @@ example as belonging to the negative class. Conversely, if $p(x_\text{text})$ fa
 below the threshold, it signifies that $x_\text{text}$ deviates from the negative
 examples, indicating an anomaly.
 
+It's crucial to highlight that the Gaussian distribution is used for modeling the data
+in this section. Thus, it is desirable for the input features to exhibit a more or less
+Gaussian distribution. In cases where the input features deviate from Gaussian
+distribution, it is necessary to apply specific operations for transformation. For
+instance, a logarithmic transformation can be applied to the input features to transform
+non-Gaussian features into more or less Gaussian distributed. However, it's worth
+considering alternative distributions that may better capture the characteristics of the
+features. For example, if the input feature involves quaternion data, opting for the
+**von Mises-Fisher** distribution might be more appropriate than adhering strictly to
+the Gaussian distribution.
+
 <div style="text-align:center">
   <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W1A2-Anomaly_Detection/images/anomaly_detection.png" alt="Your Image Description" height="256">
   <p style="font-size: 14px; color: #777;">The anomalous data, depicted as blue crosses encircled by red circles, are identified based on their probabilities falling below a predetermined threshold.</p>
