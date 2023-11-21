@@ -160,6 +160,51 @@ the Gaussian distribution.
   <p style="font-size: 14px; color: #777;">The anomalous data, depicted as blue crosses encircled by red circles, are identified based on their probabilities falling below a predetermined threshold.</p>
 </div>
 
+#### C3W2A1: [Recommender Systems and Collaborative Filtering](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W2A1-Recommender_Systems_Collaborative_Filtering/C3_W2_Collaborative_RecSys_Assignment.html)
+
+Recommender systems play a crucial role in the commercial world, evident in platforms
+such as Amazon. For instance, when purchasing books on Amazon, the system automatically
+suggests books that I am likely to buy based on my previous purchases. The intriguing
+question here is: How does Amazon discern my preferences when it lacks explicit
+information about the features of each book (such as genre - novel, romance, technology,
+finance) and my preferences for these features? This is where collaborative filtering
+comes into play. Collaborative filtering capitalizes on the collective history of
+multiple users rating the same book, enabling the extraction of implicit features. While
+we may not explicitly know which features are being extracted (e.g., whether a book is
+categorized as romance, action, or comedy), we do observe that certain books are grouped
+together based on shared features, aligning with users' preferences. Consequently,
+collaborative filtering emerges as an **unsupervised** learning method.
+
+After training, we acquire feature vectors for each book and insights into users'
+preferences for each feature. During the inference stage, let's consider a scenario
+where Amazon aims to recommend a book to a user like me. Essentially, the system needs
+to identify the book with the smallest distance in the feature vector compared to the
+books I have previously purchased.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W2A1-Recommender_Systems_Collaborative_Filtering/images/ColabFilterUse.PNG" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">Collaborative filtering trains parameters `w`, `x` and `b`, which are subsequently utilized during the inference stage.</p>
+</div>
+
+#### C3W2A2: [Recommender Systems and Content-based Filtering](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W2A2-Recommender_Systems_Content_based_Filtering/C3_W2_RecSysNN_Assignment.html)
+
+In contrast to collaborative filtering, where recommendations rely on the ratings of
+users who gave similar ratings and features lack explicit meaning, content-based
+filtering suggests items to users based on the features of both users and items. In this
+context, features carry concrete meanings, such as user demographics and product
+information.
+
+The image below precisely illustrates the overall structure of content-based filtering.
+Firstly, users' features and items' features are input into two independent neural
+networks for feature vector extraction. Secondly, the feature vectors from these two
+neural networks undergo a dot product operation, which serves as the prediction of the
+system. It's important to note that both neural networks are trained simultaneously.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W2A2-Recommender_Systems_Content_based_Filtering/images/RecSysNN.png" alt="Your Image Description" height="256">
+  <p style="font-size: 14px; color: #777;">The user network and item network extract feature vectors from the content of users and items, respectively. Subsequently, these feature vectors are utilized for prediction.</p>
+</div>
+
 ### Machine Learning Stanford
 
 #### [Linear Regression]()
