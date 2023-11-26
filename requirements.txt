@@ -1,0 +1,24 @@
+jupyterlab
+numpy < 1.24
+matplotlib
+ipympl
+scipy
+scikit-learn
+tensorflow==2.12.* # coursera uses 2.8.0 though. I think it should be ok.
+sympy
+pandas
+networkx
+pydot
+graphviz
+xgboost
+tabulate
+pickle5
+bokeh
+plotly
+swig
+gym==0.24.0
+gym[box2d]==0.24.0 # Please install swig first before gym[box2d].
+imageio==2.8.0
+imageio[pyav]==2.8.0
+PyVirtualDisplay
+xvfbwrapper

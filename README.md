@@ -205,6 +205,27 @@ system. It's important to note that both neural networks are trained simultaneou
   <p style="font-size: 14px; color: #777;">The user network and item network extract feature vectors from the content of users and items, respectively. Subsequently, these feature vectors are utilized for prediction.</p>
 </div>
 
+#### C3W3A1: [Lunar Lander](https://htmlpreview.github.io/?https://github.com/lionlai1989/machine-learning/blob/master/DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W3A1-Reinforcement_Learning/C3_W3_A1_Assignment.html)
+
+Traditional control algorithms, such as constructing dynamic and measurement models and
+employing PID controllers, pose challenges in development, requiring extensive knowledge
+of control systems from engineers. Reinforcement learning presents a novel approach to
+addressing control problems. The fundamental concept involves establishing a reward
+system that reinforces positive actions and discourages negative ones within a system.
+This incentivizes systems to autonomously discover optimal actions to achieve their
+goals. The analogy of training a dog more or less illustrates this idea. When teaching
+dogs to behave, we don't explicitly instruct them on specific behaviors. Instead, we
+reward positive actions and penalize negative ones. Ideally, dogs learn to behave
+appropriately. Similarly, in reinforcement learning, systems learn to make effective
+decisions through a reward-based framework.
+
+The animation below shows the successful landing of the Lunar Lander during the
+inference phase.
+
+<div style="text-align:center">
+  <img src="./DeepLearningAI/C3-Unsupervised_Learning_Recommenders_Reinforcement_Learning/W3A1-Reinforcement_Learning/videos/lunar_lander.gif">
+</div>
+
 ### Machine Learning Stanford
 
 #### [Linear Regression]()
@@ -286,6 +307,12 @@ learning journey, and I aim to maintain its independence.
 
 ## Reference
 
+-   Please also install `xvfb`.
+
+```
+sudo apt-get install xvfb
+```
+
 -   Please also install `graphviz` if you want to plot pretty graph (optional).
 
 ```
@@ -304,72 +331,8 @@ or
 
 Set `verbose=0` to the `fit` method of the TensorFlow `model`.
 
-<!--
-Use "python3.10" and "numpy >= 1.20"
+-   How to extract images from a pdf file.
 
-## Acknowledgments
-Explore the inspiration and references listed here to further expand your knowledge and sharpen your skills.
-
-
-
-
-Coursera: https://learn.udacity.com/courses/ud810
-
-https://docs.google.com/spreadsheets/d/1ecUGIyhYOfQPi3HPXb-7NndrLgpX_zgkwsqzfqHPaus/pubhtml
-
-Find time to do the assignments in the speard sheet above.
-
-https://faculty.cc.gatech.edu/~afb/classes/CS4495-Fall2014/
-
-### NOTE
-Make github repository to public so that the images in jupyter notebook can be displayes correctly.
-
-
-### Installation
-Install `sudo apt-get install gfortran` for scipy.
-
-C4W4A1 cannot be build because the model.json file cannot be read. We can build the model and read the weights.
-
-It requires `python-3.7.6` `python-3.10`.
-Install environment:
 ```
-/usr/local/lib/python-3.7.6/bin/python3.7 -m venv venv_deep_learning && source venv_deep_learning/bin/activate && python3 -m pip install --upgrade pip setuptools
-```
-
-Install packages:
-```
-python3 -m pip install -r requirements.txt
-``` -->
-
-<!--
-**If you want to learn about basic machine learning, please visit
-[Machine Learning Stanford note](https://share.coursera.org/wiki/index.php/ML:Main#Course_Information). This website has precious materials which can give you a broad knowledge about machine learning.**
-
-###Quick Guide:
-1. Installing python3.
-2. Installing numpy, matplotlib, scipy, scikit-learn and Pillow.
-  ```
-  sudo pip3 install numpy
-  sudo pip3 install matplotlib
-  sudo pip3 install scipy
-  sudo pip3 install scikit-learn
-  sudo pip3 install Pillow
-  ```
-
-3. Cloning from [https://github.com/lionlai1989/machineLearningStanford](https://github.com/lionlai1989/machineLearningStanford)
-  ```
-  git clone https://github.com/lionlai1989/machineLearningStanford
-  ```
-[Linear Regression](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex1)<br>
-[Logistic Regression](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex2)<br>
-[Multi-class Classification](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex3)<br>
-[Neural Networks](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex4)<br>
-[Regularized Linear Regression and Bias v.s. Variance](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex5)<br>
-[Support Vector Machines](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex6)<br>
-[K-means clustering and Principal Component Analysis](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex7)<br>
-[Anomaly Detection and Recommender Systems](https://github.com/lionlai1989/machineLearningStanford/tree/master/ex8)<br>
-
-If you want to use this module, please read the *.py file in test folder. You should get a good understanding of using this module by reading test file. If not, please contact me. Any judgement and recommendation are welcomed.
-Thank you.
 pdfimages -all -png C1_W1.pdf image_w1/
- -->
+```
